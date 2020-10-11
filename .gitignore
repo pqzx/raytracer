@@ -31,5 +31,7 @@
 *.out
 *.app
 
-# build folder
+# Other outputs
 build/
+*.ppm
+
