@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <algorithm>
+#include <cmath>
 
 
 Canvas::Canvas(int width, int height) : width(width), height(height)
@@ -40,7 +41,7 @@ void Canvas::write_all(color const& colour)
 
 int double_to_8bit_value(double x)
 {
-	return std::max(0, std::min(255, static_cast<int>(round(x * 255))));
+	return std::max(0, std::min(255, static_cast<int>(std::round(x * 255))));
 }
 
 std::string Canvas::to_ppm() const
