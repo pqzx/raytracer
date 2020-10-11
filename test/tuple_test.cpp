@@ -159,3 +159,38 @@ TEST_CASE("cross product of two vectors")
 	REQUIRE(cross(a, b) == vector(-1, 2, -1));
 	REQUIRE(cross(b, a) == vector(1, -2, 1));
 }
+
+TEST_CASE("colors are (red, green, blue) tuples")
+{
+	color a{ -0.5, 0.4, 1.7 };
+	REQUIRE(a.red() == -0.5);
+	REQUIRE(a.green() == 0.4);
+	REQUIRE(a.blue() == 1.7);
+}
+
+TEST_CASE("adding colors")
+{
+	color c1{ 0.9, 0.6, 0.75 };
+	color c2{ 0.7, 0.1, 0.25 };
+	REQUIRE(c1 + c2 == color{ 1.6, 0.7, 1.0 });
+}
+
+TEST_CASE("subtracting colors")
+{
+	color c1{ 0.9, 0.6, 0.75 };
+	color c2{ 0.7, 0.1, 0.25 };
+	REQUIRE(c1 - c2 == color{ 0.2, 0.5, 0.5 });
+}
+
+TEST_CASE("multiplying color by scalar")
+{
+	color c{ 0.2, 0.3, 0.4 };
+	REQUIRE(c * 2.0 == color{ 0.4, 0.6, 0.8 });
+}
+
+TEST_CASE("multiplying colors")
+{
+	color c1{ 1, 0.2, 0.4 };
+	color c2{ 0.9, 1, 0.1 };
+	REQUIRE(c1 * c2 == color{ 0.9, 0.2, 0.04 });
+}

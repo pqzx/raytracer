@@ -79,3 +79,14 @@ tuple cross(const tuple& a, const tuple& b)
 		a.z * b.x - a.x * b.z,
 		a.x * b.y - a.y * b.x);
 }
+
+color color::operator*(double b) const
+{
+	return color{ x * b, y * b, z * b };
+}
+
+color color::operator*(const color& c) const
+{
+	// hadamard product
+	return color{ x * c.x, y * c.y, z * c.z };
+}

@@ -25,3 +25,13 @@ double magnitude(const tuple& t);
 tuple normalize(const tuple& t);
 double dot(const tuple& a, const tuple& b);
 tuple cross(const tuple& a, const tuple& b);
+
+struct color : tuple
+{
+	color(double red, double green, double blue) : tuple{red, green, blue, 0} {}
+	double red() const { return x; }
+	double green() const { return y; }
+	double blue() const { return z; }
+	color operator*(double b) const;
+	color operator*(const color& c) const;
+};
